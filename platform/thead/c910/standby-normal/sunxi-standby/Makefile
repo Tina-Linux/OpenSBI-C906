@@ -17,7 +17,7 @@ INCLUDE = -Iinclude
 INCLUDE += -Iclk/$(STANDBY)/
 INCLUDE += -Idram/
 
-KBUILD_CFLAGS := -g -c -nostdlib -DSRAM_BASE=$(SRAM_BASE) -fno-unwind-tables -fno-jump-tables -fno-asynchronous-unwind-tables -O2 -mcmodel=medany
+KBUILD_CFLAGS := -g -c -nostdlib -DSRAM_BASE=$(SRAM_BASE) -fno-unwind-tables -fno-jump-tables -fno-asynchronous-unwind-tables -O2 -mcmodel=medany -mabi=lp64 -march=rv64gcxthead
 LD_FLAGS = -static
 
 standby-c := $(wildcard *.c dram/dram.c clk/$(STANDBY)/*.c libsrc/*.c power/$(STANDBY)/*.c \
